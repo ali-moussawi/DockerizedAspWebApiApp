@@ -1,0 +1,460 @@
+2023-10-21 14:04:57.307 +03:00  INF  User profile is available. Using 'C:\Users\LENOVO\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-10-21 14:04:57.526 +03:00  INF  Now listening on: https://localhost:7005
+2023-10-21 14:04:57.526 +03:00  INF  Now listening on: http://localhost:5204
+2023-10-21 14:04:57.529 +03:00  INF  Application started. Press Ctrl+C to shut down.
+2023-10-21 14:04:57.529 +03:00  INF  Hosting environment: Development
+2023-10-21 14:04:57.529 +03:00  INF  Content root path: C:\Users\LENOVO\Desktop\Monty-Mobile\Subscription\Subscriptionapi\
+2023-10-21 14:04:59.052 +03:00  INF  Request starting HTTP/2 GET https://localhost:7005/swagger/index.html - -
+2023-10-21 14:04:59.917 +03:00  INF  Request finished HTTP/2 GET https://localhost:7005/swagger/index.html - - - 200 - text/html;charset=utf-8 867.4353ms
+2023-10-21 14:05:00.440 +03:00  INF  Request starting HTTP/2 GET https://localhost:7005/_vs/browserLink - -
+2023-10-21 14:05:00.441 +03:00  INF  Request starting HTTP/2 GET https://localhost:7005/_framework/aspnetcore-browser-refresh.js - -
+2023-10-21 14:05:00.449 +03:00  INF  Request finished HTTP/2 GET https://localhost:7005/_framework/aspnetcore-browser-refresh.js - - - 200 12000 application/javascript;+charset=utf-8 8.4976ms
+2023-10-21 14:05:00.462 +03:00  INF  Request finished HTTP/2 GET https://localhost:7005/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 21.5753ms
+2023-10-21 14:05:00.525 +03:00  INF  Request starting HTTP/2 GET https://localhost:7005/swagger/v1/swagger.json - -
+2023-10-21 14:05:00.633 +03:00  INF  Request finished HTTP/2 GET https://localhost:7005/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 107.8536ms
+2023-10-21 14:05:12.352 +03:00  INF  Request starting HTTP/1.1 GET https://localhost:7005/api/Subscriptions/UserSubscriptions - -
+2023-10-21 14:05:12.492 +03:00  INF  Failed to validate the token.System.ArgumentException: IDX12729: Unable to decode the header 'System.String' as Base64Url encoded string. jwtEncodedString: 'System.String'.
+ ---> System.FormatException: IDX10400: Unable to decode: 'System.String' as Base64url encoded string.
+   at Microsoft.IdentityModel.Tokens.Base64UrlEncoder.UnsafeDecode(String str)
+   at Microsoft.IdentityModel.Tokens.Base64UrlEncoder.Decode(String arg)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityToken.Decode(String[] tokenParts, String rawData)
+   --- End of inner exception stack trace ---
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityToken.Decode(String[] tokenParts, String rawData)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ReadJwtToken(String token)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateSignature(String token, TokenValidationParameters validationParameters)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.ValidateToken(String token, TokenValidationParameters validationParameters, SecurityToken& validatedToken)
+   at Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerHandler.HandleAuthenticateAsync()
+
+2023-10-21 14:05:12.591 +03:00  INF  Bearer was not authenticated. Failure message: IDX12729: Unable to decode the header 'System.String' as Base64Url encoded string. jwtEncodedString: 'System.String'.
+2023-10-21 14:05:12.600 +03:00  INF  Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2023-10-21 14:05:12.608 +03:00  INF  AuthenticationScheme: Bearer was challenged.
+2023-10-21 14:05:12.619 +03:00  INF  Request finished HTTP/1.1 GET https://localhost:7005/api/Subscriptions/UserSubscriptions - - - 401 0 - 267.2780ms
+2023-10-21 14:05:16.275 +03:00  INF  Request starting HTTP/1.1 GET https://localhost:7005/api/Subscriptions/UserSubscriptions - -
+2023-10-21 14:05:16.587 +03:00  INF  Executing endpoint 'Subscriptionapi.Controllers.Subscriptions.UserSubscriptions (Subscriptionapi)'
+2023-10-21 14:05:16.606 +03:00  INF  Route matched with {action = "UserSubscriptions", controller = "Subscriptions"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserSubscriptions() on controller Subscriptionapi.Controllers.Subscriptions (Subscriptionapi).
+2023-10-21 14:05:16.847 +03:00  INF  User subscriptions
+2023-10-21 14:05:18.118 +03:00  INF  Entity Framework Core 6.0.23 initialized 'ApplicationDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.22+7b04a420e2d10ef5ef0db6abe49a6ad53a2f8653' with options: None
+2023-10-21 14:05:19.220 +03:00  INF  Executed DbCommand (82ms) [Parameters=[@__email_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."UserId", u."Email", u."PasswordHash", u."Username"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2023-10-21 14:05:19.352 +03:00  INF  Executed DbCommand (13ms) [Parameters=[@__UserId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."SubscriptionId", s."EndDate", s."StartDate", s."SubscriptionType", s."UserId"
+FROM "Subscription" AS s
+WHERE s."UserId" = @__UserId_0
+2023-10-21 14:05:19.402 +03:00  INF  Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Subscriptionapi.Models.Subscription, Subscriptionapi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-10-21 14:05:19.413 +03:00  INF  Executed action Subscriptionapi.Controllers.Subscriptions.UserSubscriptions (Subscriptionapi) in 2801.9785ms
+2023-10-21 14:05:19.414 +03:00  INF  Executed endpoint 'Subscriptionapi.Controllers.Subscriptions.UserSubscriptions (Subscriptionapi)'
+2023-10-21 14:05:19.425 +03:00  INF  Request finished HTTP/1.1 GET https://localhost:7005/api/Subscriptions/UserSubscriptions - - - 200 - application/json;+charset=utf-8 3149.9010ms
+2023-10-21 14:17:54.781 +03:00  INF  User profile is available. Using 'C:\Users\LENOVO\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-10-21 14:17:55.120 +03:00  INF  Now listening on: https://localhost:7005
+2023-10-21 14:17:55.120 +03:00  INF  Now listening on: http://localhost:5204
+2023-10-21 14:17:55.123 +03:00  INF  Application started. Press Ctrl+C to shut down.
+2023-10-21 14:17:55.123 +03:00  INF  Hosting environment: Development
+2023-10-21 14:17:55.123 +03:00  INF  Content root path: C:\Users\LENOVO\Desktop\Monty-Mobile\Subscription\Subscriptionapi\
+2023-10-21 14:17:56.627 +03:00  INF  Request starting HTTP/2 GET https://localhost:7005/swagger/index.html - -
+2023-10-21 14:17:56.918 +03:00  INF  Request finished HTTP/2 GET https://localhost:7005/swagger/index.html - - - 200 - text/html;charset=utf-8 295.2442ms
+2023-10-21 14:17:57.313 +03:00  INF  Request starting HTTP/2 GET https://localhost:7005/_framework/aspnetcore-browser-refresh.js - -
+2023-10-21 14:17:57.313 +03:00  INF  Request starting HTTP/2 GET https://localhost:7005/_vs/browserLink - -
+2023-10-21 14:17:57.326 +03:00  INF  Request finished HTTP/2 GET https://localhost:7005/_framework/aspnetcore-browser-refresh.js - - - 200 12000 application/javascript;+charset=utf-8 13.1428ms
+2023-10-21 14:17:57.344 +03:00  INF  Request finished HTTP/2 GET https://localhost:7005/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 31.1230ms
+2023-10-21 14:18:07.070 +03:00  INF  User profile is available. Using 'C:\Users\LENOVO\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-10-21 14:18:07.365 +03:00  INF  Now listening on: https://localhost:7005
+2023-10-21 14:18:07.365 +03:00  INF  Now listening on: http://localhost:5204
+2023-10-21 14:18:07.368 +03:00  INF  Application started. Press Ctrl+C to shut down.
+2023-10-21 14:18:07.368 +03:00  INF  Hosting environment: Development
+2023-10-21 14:18:07.368 +03:00  INF  Content root path: C:\Users\LENOVO\Desktop\Monty-Mobile\Subscription\Subscriptionapi\
+2023-10-21 14:18:08.673 +03:00  INF  Request starting HTTP/2 GET https://localhost:7005/swagger/index.html - -
+2023-10-21 14:18:09.357 +03:00  INF  Request finished HTTP/2 GET https://localhost:7005/swagger/index.html - - - 200 - text/html;charset=utf-8 690.8561ms
+2023-10-21 14:18:09.368 +03:00  INF  Request starting HTTP/2 GET https://localhost:7005/_vs/browserLink - -
+2023-10-21 14:18:09.369 +03:00  INF  Request starting HTTP/2 GET https://localhost:7005/_framework/aspnetcore-browser-refresh.js - -
+2023-10-21 14:18:09.385 +03:00  INF  Request finished HTTP/2 GET https://localhost:7005/_framework/aspnetcore-browser-refresh.js - - - 200 12000 application/javascript;+charset=utf-8 16.4406ms
+2023-10-21 14:18:09.398 +03:00  INF  Request finished HTTP/2 GET https://localhost:7005/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 29.4385ms
+2023-10-21 14:18:09.488 +03:00  INF  Request starting HTTP/2 GET https://localhost:7005/swagger/v1/swagger.json - -
+2023-10-21 14:18:09.589 +03:00  INF  Request finished HTTP/2 GET https://localhost:7005/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 100.7358ms
+2023-10-21 14:18:25.661 +03:00  INF  User profile is available. Using 'C:\Users\LENOVO\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-10-21 14:18:25.936 +03:00  INF  Now listening on: https://localhost:7005
+2023-10-21 14:18:25.936 +03:00  INF  Now listening on: http://localhost:5204
+2023-10-21 14:18:25.938 +03:00  INF  Application started. Press Ctrl+C to shut down.
+2023-10-21 14:18:25.938 +03:00  INF  Hosting environment: Development
+2023-10-21 14:18:25.938 +03:00  INF  Content root path: C:\Users\LENOVO\Desktop\Monty-Mobile\Subscription\Subscriptionapi\
+2023-10-21 14:18:27.244 +03:00  INF  Request starting HTTP/2 GET https://localhost:7005/swagger/index.html - -
+2023-10-21 14:18:27.883 +03:00  INF  Request finished HTTP/2 GET https://localhost:7005/swagger/index.html - - - 200 - text/html;charset=utf-8 642.1661ms
+2023-10-21 14:18:27.900 +03:00  INF  Request starting HTTP/2 GET https://localhost:7005/_vs/browserLink - -
+2023-10-21 14:18:27.900 +03:00  INF  Request starting HTTP/2 GET https://localhost:7005/_framework/aspnetcore-browser-refresh.js - -
+2023-10-21 14:18:27.915 +03:00  INF  Request finished HTTP/2 GET https://localhost:7005/_framework/aspnetcore-browser-refresh.js - - - 200 12000 application/javascript;+charset=utf-8 14.8160ms
+2023-10-21 14:18:27.944 +03:00  INF  Request finished HTTP/2 GET https://localhost:7005/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 44.2129ms
+2023-10-21 14:18:28.012 +03:00  INF  Request starting HTTP/2 GET https://localhost:7005/swagger/v1/swagger.json - -
+2023-10-21 14:18:28.123 +03:00  INF  Request finished HTTP/2 GET https://localhost:7005/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 110.9818ms
+2023-10-21 14:20:01.665 +03:00  INF  Request starting HTTP/1.1 DELETE https://localhost:7005/api/Subscriptions/DeleteSubscription?subscriptionid=1 - -
+2023-10-21 14:20:02.089 +03:00  INF  Executing endpoint 'Subscriptionapi.Controllers.Subscriptions.DeleteSubscription (Subscriptionapi)'
+2023-10-21 14:20:02.119 +03:00  INF  Route matched with {action = "DeleteSubscription", controller = "Subscriptions"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult DeleteSubscription(Int32) on controller Subscriptionapi.Controllers.Subscriptions (Subscriptionapi).
+2023-10-21 14:20:14.659 +03:00  INF  Entity Framework Core 6.0.23 initialized 'ApplicationDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.22+7b04a420e2d10ef5ef0db6abe49a6ad53a2f8653' with options: None
+2023-10-21 14:20:15.793 +03:00  INF  Executed DbCommand (109ms) [Parameters=[@__email_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."UserId", u."Email", u."PasswordHash", u."Username"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2023-10-21 14:20:18.978 +03:00  INF  Executed DbCommand (9ms) [Parameters=[@__userid_0='?' (DbType = Int32), @__subscriptionId_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."SubscriptionId", s."EndDate", s."StartDate", s."SubscriptionType", s."UserId"
+FROM "Subscription" AS s
+WHERE (s."UserId" = @__userid_0) AND (s."SubscriptionId" = @__subscriptionId_1)
+LIMIT 1
+2023-10-21 14:20:19.170 +03:00  INF  Executed DbCommand (5ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+DELETE FROM "Subscription"
+WHERE "SubscriptionId" = @p0;
+2023-10-21 14:20:20.404 +03:00  INF  Email: ali@gmail.comDeletes a Subscription 
+2023-10-21 14:20:23.369 +03:00  INF  Executing OkObjectResult, writing value of type 'System.String'.
+2023-10-21 14:20:23.377 +03:00  INF  Executed action Subscriptionapi.Controllers.Subscriptions.DeleteSubscription (Subscriptionapi) in 21250.3528ms
+2023-10-21 14:20:23.378 +03:00  INF  Executed endpoint 'Subscriptionapi.Controllers.Subscriptions.DeleteSubscription (Subscriptionapi)'
+2023-10-21 14:20:23.398 +03:00  INF  Request finished HTTP/1.1 DELETE https://localhost:7005/api/Subscriptions/DeleteSubscription?subscriptionid=1 - - - 200 - text/plain;+charset=utf-8 21732.5368ms
+2023-10-21 14:20:32.677 +03:00  INF  Request starting HTTP/1.1 GET https://localhost:7005/api/Subscriptions/UserSubscriptions - -
+2023-10-21 14:20:32.691 +03:00  INF  Executing endpoint 'Subscriptionapi.Controllers.Subscriptions.UserSubscriptions (Subscriptionapi)'
+2023-10-21 14:20:32.693 +03:00  INF  Route matched with {action = "UserSubscriptions", controller = "Subscriptions"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserSubscriptions() on controller Subscriptionapi.Controllers.Subscriptions (Subscriptionapi).
+2023-10-21 14:20:32.716 +03:00  INF  Entity Framework Core 6.0.23 initialized 'ApplicationDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.22+7b04a420e2d10ef5ef0db6abe49a6ad53a2f8653' with options: None
+2023-10-21 14:20:32.724 +03:00  INF  Executed DbCommand (1ms) [Parameters=[@__email_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."UserId", u."Email", u."PasswordHash", u."Username"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2023-10-21 14:20:32.730 +03:00  INF  Executed DbCommand (1ms) [Parameters=[@__UserId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."SubscriptionId", s."EndDate", s."StartDate", s."SubscriptionType", s."UserId"
+FROM "Subscription" AS s
+WHERE s."UserId" = @__UserId_0
+2023-10-21 14:20:32.731 +03:00  INF  Email: ali@gmail.comFetched All Subscriptions
+2023-10-21 14:20:32.731 +03:00  INF  Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Subscriptionapi.Models.Subscription, Subscriptionapi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-10-21 14:20:32.741 +03:00  INF  Executed action Subscriptionapi.Controllers.Subscriptions.UserSubscriptions (Subscriptionapi) in 48.7438ms
+2023-10-21 14:20:32.742 +03:00  INF  Executed endpoint 'Subscriptionapi.Controllers.Subscriptions.UserSubscriptions (Subscriptionapi)'
+2023-10-21 14:20:32.742 +03:00  INF  Request finished HTTP/1.1 GET https://localhost:7005/api/Subscriptions/UserSubscriptions - - - 200 - application/json;+charset=utf-8 64.8392ms
+2023-10-21 14:20:39.695 +03:00  INF  Request starting HTTP/1.1 DELETE https://localhost:7005/api/Subscriptions/DeleteSubscription?subscriptionid=5 - -
+2023-10-21 14:20:39.698 +03:00  INF  Executing endpoint 'Subscriptionapi.Controllers.Subscriptions.DeleteSubscription (Subscriptionapi)'
+2023-10-21 14:20:39.698 +03:00  INF  Route matched with {action = "DeleteSubscription", controller = "Subscriptions"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult DeleteSubscription(Int32) on controller Subscriptionapi.Controllers.Subscriptions (Subscriptionapi).
+2023-10-21 14:20:41.001 +03:00  INF  Entity Framework Core 6.0.23 initialized 'ApplicationDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.22+7b04a420e2d10ef5ef0db6abe49a6ad53a2f8653' with options: None
+2023-10-21 14:20:41.003 +03:00  INF  Executed DbCommand (1ms) [Parameters=[@__email_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."UserId", u."Email", u."PasswordHash", u."Username"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2023-10-21 14:20:41.004 +03:00  INF  Executed DbCommand (0ms) [Parameters=[@__userid_0='?' (DbType = Int32), @__subscriptionId_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."SubscriptionId", s."EndDate", s."StartDate", s."SubscriptionType", s."UserId"
+FROM "Subscription" AS s
+WHERE (s."UserId" = @__userid_0) AND (s."SubscriptionId" = @__subscriptionId_1)
+LIMIT 1
+2023-10-21 14:20:41.004 +03:00  INF  Email: ali@gmail.comDeletes a Subscription 
+2023-10-21 14:20:43.427 +03:00  INF  Executing OkObjectResult, writing value of type 'System.String'.
+2023-10-21 14:20:43.428 +03:00  INF  Executed action Subscriptionapi.Controllers.Subscriptions.DeleteSubscription (Subscriptionapi) in 3729.3353ms
+2023-10-21 14:20:43.428 +03:00  INF  Executed endpoint 'Subscriptionapi.Controllers.Subscriptions.DeleteSubscription (Subscriptionapi)'
+2023-10-21 14:20:43.428 +03:00  INF  Request finished HTTP/1.1 DELETE https://localhost:7005/api/Subscriptions/DeleteSubscription?subscriptionid=5 - - - 200 - text/plain;+charset=utf-8 3732.3671ms
+2023-10-21 14:20:50.312 +03:00  INF  Request starting HTTP/1.1 GET https://localhost:7005/api/Subscriptions/UserSubscriptions - -
+2023-10-21 14:20:50.313 +03:00  INF  Executing endpoint 'Subscriptionapi.Controllers.Subscriptions.UserSubscriptions (Subscriptionapi)'
+2023-10-21 14:20:50.313 +03:00  INF  Route matched with {action = "UserSubscriptions", controller = "Subscriptions"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserSubscriptions() on controller Subscriptionapi.Controllers.Subscriptions (Subscriptionapi).
+2023-10-21 14:20:50.314 +03:00  INF  Entity Framework Core 6.0.23 initialized 'ApplicationDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.22+7b04a420e2d10ef5ef0db6abe49a6ad53a2f8653' with options: None
+2023-10-21 14:20:50.315 +03:00  INF  Executed DbCommand (1ms) [Parameters=[@__email_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."UserId", u."Email", u."PasswordHash", u."Username"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2023-10-21 14:20:50.316 +03:00  INF  Executed DbCommand (0ms) [Parameters=[@__UserId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."SubscriptionId", s."EndDate", s."StartDate", s."SubscriptionType", s."UserId"
+FROM "Subscription" AS s
+WHERE s."UserId" = @__UserId_0
+2023-10-21 14:20:50.316 +03:00  INF  Email: ali@gmail.comFetched All Subscriptions
+2023-10-21 14:20:50.316 +03:00  INF  Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Subscriptionapi.Models.Subscription, Subscriptionapi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-10-21 14:20:50.316 +03:00  INF  Executed action Subscriptionapi.Controllers.Subscriptions.UserSubscriptions (Subscriptionapi) in 3.7678ms
+2023-10-21 14:20:50.316 +03:00  INF  Executed endpoint 'Subscriptionapi.Controllers.Subscriptions.UserSubscriptions (Subscriptionapi)'
+2023-10-21 14:20:50.317 +03:00  INF  Request finished HTTP/1.1 GET https://localhost:7005/api/Subscriptions/UserSubscriptions - - - 200 - application/json;+charset=utf-8 4.4623ms
+2023-10-21 14:20:52.071 +03:00  INF  Request starting HTTP/1.1 GET https://localhost:7005/api/Subscriptions/UserSubscriptions - -
+2023-10-21 14:20:52.072 +03:00  INF  Executing endpoint 'Subscriptionapi.Controllers.Subscriptions.UserSubscriptions (Subscriptionapi)'
+2023-10-21 14:20:52.072 +03:00  INF  Route matched with {action = "UserSubscriptions", controller = "Subscriptions"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserSubscriptions() on controller Subscriptionapi.Controllers.Subscriptions (Subscriptionapi).
+2023-10-21 14:20:52.072 +03:00  INF  Entity Framework Core 6.0.23 initialized 'ApplicationDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.22+7b04a420e2d10ef5ef0db6abe49a6ad53a2f8653' with options: None
+2023-10-21 14:20:52.073 +03:00  INF  Executed DbCommand (0ms) [Parameters=[@__email_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."UserId", u."Email", u."PasswordHash", u."Username"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2023-10-21 14:20:52.074 +03:00  INF  Executed DbCommand (0ms) [Parameters=[@__UserId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."SubscriptionId", s."EndDate", s."StartDate", s."SubscriptionType", s."UserId"
+FROM "Subscription" AS s
+WHERE s."UserId" = @__UserId_0
+2023-10-21 14:20:52.074 +03:00  INF  Email: ali@gmail.comFetched All Subscriptions
+2023-10-21 14:20:52.074 +03:00  INF  Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Subscriptionapi.Models.Subscription, Subscriptionapi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-10-21 14:20:52.074 +03:00  INF  Executed action Subscriptionapi.Controllers.Subscriptions.UserSubscriptions (Subscriptionapi) in 2.1324ms
+2023-10-21 14:20:52.074 +03:00  INF  Executed endpoint 'Subscriptionapi.Controllers.Subscriptions.UserSubscriptions (Subscriptionapi)'
+2023-10-21 14:20:52.074 +03:00  INF  Request finished HTTP/1.1 GET https://localhost:7005/api/Subscriptions/UserSubscriptions - - - 200 - application/json;+charset=utf-8 2.7348ms
+2023-10-21 14:21:39.205 +03:00  INF  Request starting HTTP/2 GET https://localhost:7005/swagger/index.html - -
+2023-10-21 14:21:39.232 +03:00  INF  Request finished HTTP/2 GET https://localhost:7005/swagger/index.html - - - 200 - text/html;charset=utf-8 23.2507ms
+2023-10-21 14:21:39.238 +03:00  INF  Request starting HTTP/2 GET https://localhost:7005/_framework/aspnetcore-browser-refresh.js - -
+2023-10-21 14:21:39.238 +03:00  INF  Request starting HTTP/2 GET https://localhost:7005/_vs/browserLink - -
+2023-10-21 14:21:39.238 +03:00  INF  Request finished HTTP/2 GET https://localhost:7005/_framework/aspnetcore-browser-refresh.js - - - 200 12000 application/javascript;+charset=utf-8 0.7028ms
+2023-10-21 14:21:39.256 +03:00  INF  Request finished HTTP/2 GET https://localhost:7005/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 18.3407ms
+2023-10-21 14:21:39.389 +03:00  INF  Request starting HTTP/2 GET https://localhost:7005/swagger/v1/swagger.json - -
+2023-10-21 14:21:39.393 +03:00  INF  Request finished HTTP/2 GET https://localhost:7005/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 4.5029ms
+2023-10-21 15:06:13.694 +03:00  INF  User profile is available. Using 'C:\Users\LENOVO\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-10-21 15:06:14.044 +03:00  INF  Now listening on: https://localhost:7005
+2023-10-21 15:06:14.044 +03:00  INF  Now listening on: http://localhost:5204
+2023-10-21 15:06:14.046 +03:00  INF  Application started. Press Ctrl+C to shut down.
+2023-10-21 15:06:14.047 +03:00  INF  Hosting environment: Development
+2023-10-21 15:06:14.047 +03:00  INF  Content root path: C:\Users\LENOVO\Desktop\Monty-Mobile\Subscription\Subscriptionapi\
+2023-10-21 15:06:15.019 +03:00  INF  Request starting HTTP/2 GET https://localhost:7005/swagger/index.html - -
+2023-10-21 15:06:15.576 +03:00  INF  Request finished HTTP/2 GET https://localhost:7005/swagger/index.html - - - 200 - text/html;charset=utf-8 562.1674ms
+2023-10-21 15:06:15.587 +03:00  INF  Request starting HTTP/2 GET https://localhost:7005/_framework/aspnetcore-browser-refresh.js - -
+2023-10-21 15:06:15.587 +03:00  INF  Request starting HTTP/2 GET https://localhost:7005/_vs/browserLink - -
+2023-10-21 15:06:15.599 +03:00  INF  Request finished HTTP/2 GET https://localhost:7005/_framework/aspnetcore-browser-refresh.js - - - 200 12000 application/javascript;+charset=utf-8 12.1361ms
+2023-10-21 15:06:15.619 +03:00  INF  Request finished HTTP/2 GET https://localhost:7005/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 31.9545ms
+2023-10-21 15:06:15.680 +03:00  INF  Request starting HTTP/2 GET https://localhost:7005/swagger/v1/swagger.json - -
+2023-10-21 15:06:15.774 +03:00  INF  Request finished HTTP/2 GET https://localhost:7005/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 94.2978ms
+2023-10-21 15:06:20.362 +03:00  INF  Request starting HTTP/1.1 POST https://localhost:7005/api/Security/login application/json 57
+2023-10-21 15:06:20.474 +03:00  INF  Executing endpoint 'Subscriptionapi.Controllers.Security.Login (Subscriptionapi)'
+2023-10-21 15:06:20.494 +03:00  INF  Route matched with {action = "Login", controller = "Security"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(Subscriptionapi.Models.LoginModel) on controller Subscriptionapi.Controllers.Security (Subscriptionapi).
+2023-10-21 15:06:22.164 +03:00  INF  Entity Framework Core 6.0.23 initialized 'ApplicationDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.22+7b04a420e2d10ef5ef0db6abe49a6ad53a2f8653' with options: None
+2023-10-21 15:06:23.368 +03:00  INF  Executed DbCommand (120ms) [Parameters=[@__Trim_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."UserId", u."Email", u."PasswordHash", u."Username"
+FROM "Users" AS u
+WHERE u."Email" = @__Trim_0
+LIMIT 1
+2023-10-21 15:06:23.981 +03:00  INF  Executed DbCommand (1ms) [Parameters=[@__email_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."UserId", u."Email", u."PasswordHash", u."Username"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2023-10-21 15:06:24.203 +03:00  INF  Executing OkObjectResult, writing value of type 'Subscriptionapi.Models.LoginModel'.
+2023-10-21 15:06:24.218 +03:00  INF  Executed action Subscriptionapi.Controllers.Security.Login (Subscriptionapi) in 3715.5462ms
+2023-10-21 15:06:24.219 +03:00  INF  Executed endpoint 'Subscriptionapi.Controllers.Security.Login (Subscriptionapi)'
+2023-10-21 15:06:24.229 +03:00  INF  Request finished HTTP/1.1 POST https://localhost:7005/api/Security/login application/json 57 - 200 - application/json;+charset=utf-8 3867.0815ms
+2023-10-21 15:07:18.608 +03:00  INF  Request starting HTTP/1.1 GET https://localhost:7005/api/Subscriptions/SubscriptionRemainingDys?Subscriptionid=2 - -
+2023-10-21 15:07:18.724 +03:00  INF  Executing endpoint 'Subscriptionapi.Controllers.Subscriptions.SubscriptionRemainingDys (Subscriptionapi)'
+2023-10-21 15:07:18.726 +03:00  INF  Route matched with {action = "SubscriptionRemainingDys", controller = "Subscriptions"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult SubscriptionRemainingDys(Int32) on controller Subscriptionapi.Controllers.Subscriptions (Subscriptionapi).
+2023-10-21 15:07:18.796 +03:00  INF  Remaining Days :460
+2023-10-21 15:07:18.797 +03:00  INF  Executing OkObjectResult, writing value of type 'System.String'.
+2023-10-21 15:07:18.797 +03:00  INF  Executed action Subscriptionapi.Controllers.Subscriptions.SubscriptionRemainingDys (Subscriptionapi) in 71.2502ms
+2023-10-21 15:07:18.797 +03:00  INF  Executed endpoint 'Subscriptionapi.Controllers.Subscriptions.SubscriptionRemainingDys (Subscriptionapi)'
+2023-10-21 15:07:18.797 +03:00  INF  Request finished HTTP/1.1 GET https://localhost:7005/api/Subscriptions/SubscriptionRemainingDys?Subscriptionid=2 - - - 200 - text/plain;+charset=utf-8 189.0427ms
+2023-10-21 15:07:25.091 +03:00  INF  Request starting HTTP/1.1 GET https://localhost:7005/api/Subscriptions/SubscriptionRemainingDys?Subscriptionid=3 - -
+2023-10-21 15:07:25.095 +03:00  INF  Executing endpoint 'Subscriptionapi.Controllers.Subscriptions.SubscriptionRemainingDys (Subscriptionapi)'
+2023-10-21 15:07:25.096 +03:00  INF  Route matched with {action = "SubscriptionRemainingDys", controller = "Subscriptions"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult SubscriptionRemainingDys(Int32) on controller Subscriptionapi.Controllers.Subscriptions (Subscriptionapi).
+2023-10-21 15:07:25.098 +03:00  INF  Executing BadRequestObjectResult, writing value of type 'System.String'.
+2023-10-21 15:07:25.098 +03:00  INF  Executed action Subscriptionapi.Controllers.Subscriptions.SubscriptionRemainingDys (Subscriptionapi) in 2.8536ms
+2023-10-21 15:07:25.099 +03:00  INF  Executed endpoint 'Subscriptionapi.Controllers.Subscriptions.SubscriptionRemainingDys (Subscriptionapi)'
+2023-10-21 15:07:25.099 +03:00  INF  Request finished HTTP/1.1 GET https://localhost:7005/api/Subscriptions/SubscriptionRemainingDys?Subscriptionid=3 - - - 400 - text/plain;+charset=utf-8 7.3803ms
+2023-10-21 15:26:24.144 +03:00  INF  User profile is available. Using 'C:\Users\LENOVO\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-10-21 15:26:24.509 +03:00  INF  Now listening on: https://localhost:7005
+2023-10-21 15:26:24.510 +03:00  INF  Now listening on: http://localhost:5204
+2023-10-21 15:26:24.512 +03:00  INF  Application started. Press Ctrl+C to shut down.
+2023-10-21 15:26:24.512 +03:00  INF  Hosting environment: Development
+2023-10-21 15:26:24.512 +03:00  INF  Content root path: C:\Users\LENOVO\Desktop\Monty-Mobile\Subscription\Subscriptionapi\
+2023-10-21 15:26:25.402 +03:00  INF  Request starting HTTP/2 GET https://localhost:7005/swagger/index.html - -
+2023-10-21 15:26:25.674 +03:00  INF  Request finished HTTP/2 GET https://localhost:7005/swagger/index.html - - - 200 - text/html;charset=utf-8 279.1680ms
+2023-10-21 15:26:25.965 +03:00  INF  Request starting HTTP/2 GET https://localhost:7005/_vs/browserLink - -
+2023-10-21 15:26:25.966 +03:00  INF  Request starting HTTP/2 GET https://localhost:7005/_framework/aspnetcore-browser-refresh.js - -
+2023-10-21 15:26:25.976 +03:00  INF  Request finished HTTP/2 GET https://localhost:7005/_framework/aspnetcore-browser-refresh.js - - - 200 12000 application/javascript;+charset=utf-8 10.7726ms
+2023-10-21 15:26:25.990 +03:00  INF  Request finished HTTP/2 GET https://localhost:7005/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 24.2906ms
+2023-10-21 15:26:26.066 +03:00  INF  Request starting HTTP/2 GET https://localhost:7005/swagger/v1/swagger.json - -
+2023-10-21 15:26:26.187 +03:00  INF  Request finished HTTP/2 GET https://localhost:7005/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 121.6854ms
+2023-10-21 15:26:36.411 +03:00  INF  Request starting HTTP/1.1 GET https://localhost:7005/api/Subscriptions/SubscriptionRemainingDys?Subscriptionid=3 - -
+2023-10-21 15:26:36.827 +03:00  INF  Executing endpoint 'Subscriptionapi.Controllers.Subscriptions.SubscriptionRemainingDays (Subscriptionapi)'
+2023-10-21 15:26:36.866 +03:00  INF  Route matched with {action = "SubscriptionRemainingDays", controller = "Subscriptions"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult SubscriptionRemainingDays(Int32) on controller Subscriptionapi.Controllers.Subscriptions (Subscriptionapi).
+2023-10-21 15:26:37.662 +03:00  INF  Executing BadRequestObjectResult, writing value of type 'System.String'.
+2023-10-21 15:26:37.672 +03:00  INF  Executed action Subscriptionapi.Controllers.Subscriptions.SubscriptionRemainingDays (Subscriptionapi) in 796.3243ms
+2023-10-21 15:26:37.674 +03:00  INF  Executed endpoint 'Subscriptionapi.Controllers.Subscriptions.SubscriptionRemainingDays (Subscriptionapi)'
+2023-10-21 15:26:37.677 +03:00  INF  Request finished HTTP/1.1 GET https://localhost:7005/api/Subscriptions/SubscriptionRemainingDys?Subscriptionid=3 - - - 400 - text/plain;+charset=utf-8 1266.4519ms
+2023-10-21 15:26:41.973 +03:00  INF  Request starting HTTP/1.1 GET https://localhost:7005/api/Subscriptions/SubscriptionRemainingDys?Subscriptionid=2 - -
+2023-10-21 15:26:41.976 +03:00  INF  Executing endpoint 'Subscriptionapi.Controllers.Subscriptions.SubscriptionRemainingDays (Subscriptionapi)'
+2023-10-21 15:26:41.977 +03:00  INF  Route matched with {action = "SubscriptionRemainingDays", controller = "Subscriptions"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult SubscriptionRemainingDays(Int32) on controller Subscriptionapi.Controllers.Subscriptions (Subscriptionapi).
+2023-10-21 15:26:41.997 +03:00  INF  Remaining Days :460
+2023-10-21 15:26:41.997 +03:00  INF  Executing OkObjectResult, writing value of type 'System.String'.
+2023-10-21 15:26:41.998 +03:00  INF  Executed action Subscriptionapi.Controllers.Subscriptions.SubscriptionRemainingDays (Subscriptionapi) in 20.7136ms
+2023-10-21 15:26:41.998 +03:00  INF  Executed endpoint 'Subscriptionapi.Controllers.Subscriptions.SubscriptionRemainingDays (Subscriptionapi)'
+2023-10-21 15:26:41.998 +03:00  INF  Request finished HTTP/1.1 GET https://localhost:7005/api/Subscriptions/SubscriptionRemainingDys?Subscriptionid=2 - - - 200 - text/plain;+charset=utf-8 24.8156ms
+2023-10-21 15:26:58.884 +03:00  INF  Request starting HTTP/1.1 GET https://localhost:7005/api/Subscriptions/SubscriptionRemainingDys?Subscriptionid=2 - -
+2023-10-21 15:26:58.887 +03:00  INF  Executing endpoint 'Subscriptionapi.Controllers.Subscriptions.SubscriptionRemainingDays (Subscriptionapi)'
+2023-10-21 15:26:58.887 +03:00  INF  Route matched with {action = "SubscriptionRemainingDays", controller = "Subscriptions"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult SubscriptionRemainingDays(Int32) on controller Subscriptionapi.Controllers.Subscriptions (Subscriptionapi).
+2023-10-21 15:26:58.891 +03:00  INF  Remaining Days :460
+2023-10-21 15:26:58.891 +03:00  INF  Executing OkObjectResult, writing value of type 'System.String'.
+2023-10-21 15:26:58.891 +03:00  INF  Executed action Subscriptionapi.Controllers.Subscriptions.SubscriptionRemainingDays (Subscriptionapi) in 4.4791ms
+2023-10-21 15:26:58.891 +03:00  INF  Executed endpoint 'Subscriptionapi.Controllers.Subscriptions.SubscriptionRemainingDays (Subscriptionapi)'
+2023-10-21 15:26:58.892 +03:00  INF  Request finished HTTP/1.1 GET https://localhost:7005/api/Subscriptions/SubscriptionRemainingDys?Subscriptionid=2 - - - 200 - text/plain;+charset=utf-8 7.7811ms
+2023-10-21 15:27:00.265 +03:00  INF  Request starting HTTP/1.1 GET https://localhost:7005/api/Subscriptions/SubscriptionRemainingDys?Subscriptionid=2 - -
+2023-10-21 15:27:00.265 +03:00  INF  Executing endpoint 'Subscriptionapi.Controllers.Subscriptions.SubscriptionRemainingDays (Subscriptionapi)'
+2023-10-21 15:27:00.265 +03:00  INF  Route matched with {action = "SubscriptionRemainingDays", controller = "Subscriptions"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult SubscriptionRemainingDays(Int32) on controller Subscriptionapi.Controllers.Subscriptions (Subscriptionapi).
+2023-10-21 15:27:00.267 +03:00  INF  Remaining Days :460
+2023-10-21 15:27:00.268 +03:00  INF  Executing OkObjectResult, writing value of type 'System.String'.
+2023-10-21 15:27:00.268 +03:00  INF  Executed action Subscriptionapi.Controllers.Subscriptions.SubscriptionRemainingDays (Subscriptionapi) in 2.485ms
+2023-10-21 15:27:00.268 +03:00  INF  Executed endpoint 'Subscriptionapi.Controllers.Subscriptions.SubscriptionRemainingDays (Subscriptionapi)'
+2023-10-21 15:27:00.268 +03:00  INF  Request finished HTTP/1.1 GET https://localhost:7005/api/Subscriptions/SubscriptionRemainingDys?Subscriptionid=2 - - - 200 - text/plain;+charset=utf-8 3.4084ms
+2023-10-21 15:34:29.558 +03:00  INF  User profile is available. Using 'C:\Users\LENOVO\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-10-21 15:34:29.932 +03:00  INF  Now listening on: https://localhost:7005
+2023-10-21 15:34:29.932 +03:00  INF  Now listening on: http://localhost:5204
+2023-10-21 15:34:29.934 +03:00  INF  Application started. Press Ctrl+C to shut down.
+2023-10-21 15:34:29.934 +03:00  INF  Hosting environment: Development
+2023-10-21 15:34:29.934 +03:00  INF  Content root path: C:\Users\LENOVO\Desktop\Monty-Mobile\Subscription\Subscriptionapi\
+2023-10-21 15:34:31.024 +03:00  INF  Request starting HTTP/2 GET https://localhost:7005/swagger/index.html - -
+2023-10-21 15:34:31.330 +03:00  INF  Request finished HTTP/2 GET https://localhost:7005/swagger/index.html - - - 200 - text/html;charset=utf-8 308.0944ms
+2023-10-21 15:34:31.659 +03:00  INF  Request starting HTTP/2 GET https://localhost:7005/_vs/browserLink - -
+2023-10-21 15:34:31.659 +03:00  INF  Request starting HTTP/2 GET https://localhost:7005/_framework/aspnetcore-browser-refresh.js - -
+2023-10-21 15:34:31.669 +03:00  INF  Request finished HTTP/2 GET https://localhost:7005/_framework/aspnetcore-browser-refresh.js - - - 200 12000 application/javascript;+charset=utf-8 9.8641ms
+2023-10-21 15:34:31.688 +03:00  INF  Request finished HTTP/2 GET https://localhost:7005/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 29.1708ms
+2023-10-21 15:34:31.754 +03:00  INF  Request starting HTTP/2 GET https://localhost:7005/swagger/v1/swagger.json - -
+2023-10-21 15:34:31.854 +03:00  INF  Request finished HTTP/2 GET https://localhost:7005/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 99.8079ms
+2023-10-21 15:35:44.586 +03:00  INF  Request starting HTTP/1.1 PUT https://localhost:7005/api/Subscriptions/UpdateSubscription application/json 143
+2023-10-21 15:35:44.940 +03:00  INF  Executing endpoint 'Subscriptionapi.Controllers.Subscriptions.UpdateSubscription (Subscriptionapi)'
+2023-10-21 15:35:44.964 +03:00  INF  Route matched with {action = "UpdateSubscription", controller = "Subscriptions"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UpdateSubscription(Subscriptionapi.Models.Subscription) on controller Subscriptionapi.Controllers.Subscriptions (Subscriptionapi).
+2023-10-21 15:35:54.456 +03:00  INF  Executing BadRequestObjectResult, writing value of type 'System.String'.
+2023-10-21 15:35:54.462 +03:00  INF  Executed action Subscriptionapi.Controllers.Subscriptions.UpdateSubscription (Subscriptionapi) in 9492.1709ms
+2023-10-21 15:35:54.464 +03:00  INF  Executed endpoint 'Subscriptionapi.Controllers.Subscriptions.UpdateSubscription (Subscriptionapi)'
+2023-10-21 15:35:54.471 +03:00  INF  Request finished HTTP/1.1 PUT https://localhost:7005/api/Subscriptions/UpdateSubscription application/json 143 - 400 - text/plain;+charset=utf-8 9885.0163ms
+2023-10-21 15:36:02.157 +03:00  INF  Request starting HTTP/1.1 PUT https://localhost:7005/api/Subscriptions/UpdateSubscription application/json 143
+2023-10-21 15:36:02.161 +03:00  INF  Executing endpoint 'Subscriptionapi.Controllers.Subscriptions.UpdateSubscription (Subscriptionapi)'
+2023-10-21 15:36:02.162 +03:00  INF  Route matched with {action = "UpdateSubscription", controller = "Subscriptions"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UpdateSubscription(Subscriptionapi.Models.Subscription) on controller Subscriptionapi.Controllers.Subscriptions (Subscriptionapi).
+2023-10-21 15:36:14.440 +03:00  INF  Entity Framework Core 6.0.23 initialized 'ApplicationDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.22+7b04a420e2d10ef5ef0db6abe49a6ad53a2f8653' with options: None
+2023-10-21 15:36:15.572 +03:00  INF  Executed DbCommand (121ms) [Parameters=[@__email_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."UserId", u."Email", u."PasswordHash", u."Username"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2023-10-21 15:36:18.715 +03:00  INF  Executed DbCommand (8ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."SubscriptionId", s."EndDate", s."StartDate", s."SubscriptionType", s."UserId"
+FROM "Subscription" AS s
+WHERE s."SubscriptionId" = @__p_0
+LIMIT 1
+2023-10-21 15:36:35.507 +03:00  INF  Error Happend in UserSubscriptions System.InvalidOperationException: The instance of entity type 'Subscription' cannot be tracked because another instance with the same key value for {'SubscriptionId'} is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values.
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.ThrowIdentityConflict(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.IdentityMap`1.Add(TKey key, InternalEntityEntry entry, Boolean updateDuplicate)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.StartTracking(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState oldState, EntityState newState, Boolean acceptChanges, Boolean modifyProperties)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.PaintAction(EntityEntryGraphNode`1 node)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraph[TState](EntityEntryGraphNode`1 node, Func`2 handleNode)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.AttachGraph(InternalEntityEntry rootEntry, EntityState targetState, EntityState storeGeneratedWithKeySetTargetState, Boolean forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Update(TEntity entity)
+   at Subscriptionapi.Repository.SubscriptionRepository.UpdateSubscription(Subscription subscription) in C:\Users\LENOVO\Desktop\Monty-Mobile\Subscription\Subscriptionapi\Repository\SubscriptionRepository.cs:line 47
+   at Subscriptionapi.Services.SubscriptionService.UpdateSubscription(Subscription subscription) in C:\Users\LENOVO\Desktop\Monty-Mobile\Subscription\Subscriptionapi\Services\SubscriptionService.cs:line 43
+   at Subscriptionapi.Controllers.Subscriptions.UpdateSubscription(Subscription subscription) in C:\Users\LENOVO\Desktop\Monty-Mobile\Subscription\Subscriptionapi\Controllers\Subscriptions.cs:line 286
+2023-10-21 15:36:35.508 +03:00  INF  Executing BadRequestObjectResult, writing value of type 'System.String'.
+2023-10-21 15:36:35.508 +03:00  INF  Executed action Subscriptionapi.Controllers.Subscriptions.UpdateSubscription (Subscriptionapi) in 33346.3315ms
+2023-10-21 15:36:35.508 +03:00  INF  Executed endpoint 'Subscriptionapi.Controllers.Subscriptions.UpdateSubscription (Subscriptionapi)'
+2023-10-21 15:36:35.516 +03:00  INF  Request finished HTTP/1.1 PUT https://localhost:7005/api/Subscriptions/UpdateSubscription application/json 143 - 400 - text/plain;+charset=utf-8 33358.9535ms
+2023-10-21 15:36:39.591 +03:00  INF  Request starting HTTP/1.1 PUT https://localhost:7005/api/Subscriptions/UpdateSubscription application/json 143
+2023-10-21 15:36:39.594 +03:00  INF  Executing endpoint 'Subscriptionapi.Controllers.Subscriptions.UpdateSubscription (Subscriptionapi)'
+2023-10-21 15:36:39.594 +03:00  INF  Route matched with {action = "UpdateSubscription", controller = "Subscriptions"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UpdateSubscription(Subscriptionapi.Models.Subscription) on controller Subscriptionapi.Controllers.Subscriptions (Subscriptionapi).
+2023-10-21 15:36:50.600 +03:00  INF  Entity Framework Core 6.0.23 initialized 'ApplicationDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.22+7b04a420e2d10ef5ef0db6abe49a6ad53a2f8653' with options: None
+2023-10-21 15:36:50.605 +03:00  INF  Executed DbCommand (0ms) [Parameters=[@__email_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."UserId", u."Email", u."PasswordHash", u."Username"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2023-10-21 15:36:51.845 +03:00  INF  Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."SubscriptionId", s."EndDate", s."StartDate", s."SubscriptionType", s."UserId"
+FROM "Subscription" AS s
+WHERE s."SubscriptionId" = @__p_0
+LIMIT 1
+2023-10-21 15:39:27.777 +03:00  INF  User profile is available. Using 'C:\Users\LENOVO\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-10-21 15:39:28.065 +03:00  INF  Now listening on: https://localhost:7005
+2023-10-21 15:39:28.065 +03:00  INF  Now listening on: http://localhost:5204
+2023-10-21 15:39:28.069 +03:00  INF  Application started. Press Ctrl+C to shut down.
+2023-10-21 15:39:28.074 +03:00  INF  Hosting environment: Development
+2023-10-21 15:39:28.075 +03:00  INF  Content root path: C:\Users\LENOVO\Desktop\Monty-Mobile\Subscription\Subscriptionapi\
+2023-10-21 15:39:29.311 +03:00  INF  Request starting HTTP/2 GET https://localhost:7005/swagger/index.html - -
+2023-10-21 15:39:29.636 +03:00  INF  Request finished HTTP/2 GET https://localhost:7005/swagger/index.html - - - 200 - text/html;charset=utf-8 332.7993ms
+2023-10-21 15:39:30.082 +03:00  INF  Request starting HTTP/2 GET https://localhost:7005/_vs/browserLink - -
+2023-10-21 15:39:30.082 +03:00  INF  Request starting HTTP/2 GET https://localhost:7005/_framework/aspnetcore-browser-refresh.js - -
+2023-10-21 15:39:30.111 +03:00  INF  Request finished HTTP/2 GET https://localhost:7005/_framework/aspnetcore-browser-refresh.js - - - 200 12000 application/javascript;+charset=utf-8 28.9666ms
+2023-10-21 15:39:30.123 +03:00  INF  Request finished HTTP/2 GET https://localhost:7005/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 41.5838ms
+2023-10-21 15:39:30.231 +03:00  INF  Request starting HTTP/2 GET https://localhost:7005/swagger/v1/swagger.json - -
+2023-10-21 15:39:30.363 +03:00  INF  Request finished HTTP/2 GET https://localhost:7005/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 132.1190ms
+2023-10-21 15:39:32.792 +03:00  INF  Request starting HTTP/1.1 PUT https://localhost:7005/api/Subscriptions/UpdateSubscription application/json 143
+2023-10-21 15:39:33.059 +03:00  INF  Executing endpoint 'Subscriptionapi.Controllers.Subscriptions.UpdateSubscription (Subscriptionapi)'
+2023-10-21 15:39:33.076 +03:00  INF  Route matched with {action = "UpdateSubscription", controller = "Subscriptions"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UpdateSubscription(Subscriptionapi.Models.Subscription) on controller Subscriptionapi.Controllers.Subscriptions (Subscriptionapi).
+2023-10-21 15:39:44.775 +03:00  INF  Entity Framework Core 6.0.23 initialized 'ApplicationDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.22+7b04a420e2d10ef5ef0db6abe49a6ad53a2f8653' with options: None
+2023-10-21 15:39:45.710 +03:00  INF  Executed DbCommand (98ms) [Parameters=[@__email_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."UserId", u."Email", u."PasswordHash", u."Username"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2023-10-21 15:39:47.745 +03:00  INF  Executed DbCommand (11ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."SubscriptionId", s."EndDate", s."StartDate", s."SubscriptionType", s."UserId"
+FROM "Subscription" AS s
+WHERE s."SubscriptionId" = @__p_0
+LIMIT 1
+2023-10-21 15:50:36.753 +03:00  INF  User profile is available. Using 'C:\Users\LENOVO\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-10-21 15:50:37.077 +03:00  INF  Now listening on: https://localhost:7005
+2023-10-21 15:50:37.078 +03:00  INF  Now listening on: http://localhost:5204
+2023-10-21 15:50:37.081 +03:00  INF  Application started. Press Ctrl+C to shut down.
+2023-10-21 15:50:37.081 +03:00  INF  Hosting environment: Development
+2023-10-21 15:50:37.081 +03:00  INF  Content root path: C:\Users\LENOVO\Desktop\Monty-Mobile\Subscription\Subscriptionapi\
+2023-10-21 15:50:38.743 +03:00  INF  Request starting HTTP/2 GET https://localhost:7005/swagger/index.html - -
+2023-10-21 15:50:39.022 +03:00  INF  Request finished HTTP/2 GET https://localhost:7005/swagger/index.html - - - 200 - text/html;charset=utf-8 281.6760ms
+2023-10-21 15:50:39.348 +03:00  INF  Request starting HTTP/2 GET https://localhost:7005/_vs/browserLink - -
+2023-10-21 15:50:39.349 +03:00  INF  Request starting HTTP/2 GET https://localhost:7005/_framework/aspnetcore-browser-refresh.js - -
+2023-10-21 15:50:39.360 +03:00  INF  Request finished HTTP/2 GET https://localhost:7005/_framework/aspnetcore-browser-refresh.js - - - 200 12000 application/javascript;+charset=utf-8 10.9361ms
+2023-10-21 15:50:39.373 +03:00  INF  Request finished HTTP/2 GET https://localhost:7005/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 24.3920ms
+2023-10-21 15:50:39.451 +03:00  INF  Request starting HTTP/2 GET https://localhost:7005/swagger/v1/swagger.json - -
+2023-10-21 15:50:39.565 +03:00  INF  Request finished HTTP/2 GET https://localhost:7005/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 114.2649ms
+2023-10-21 15:50:46.058 +03:00  INF  Request starting HTTP/1.1 PUT https://localhost:7005/api/Subscriptions/UpdateSubscription application/json 143
+2023-10-21 15:50:46.589 +03:00  INF  Executing endpoint 'Subscriptionapi.Controllers.Subscriptions.UpdateSubscription (Subscriptionapi)'
+2023-10-21 15:50:46.633 +03:00  INF  Route matched with {action = "UpdateSubscription", controller = "Subscriptions"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UpdateSubscription(Subscriptionapi.Models.Subscription) on controller Subscriptionapi.Controllers.Subscriptions (Subscriptionapi).
+2023-10-21 15:50:59.057 +03:00  INF  Entity Framework Core 6.0.23 initialized 'ApplicationDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.22+7b04a420e2d10ef5ef0db6abe49a6ad53a2f8653' with options: None
+2023-10-21 15:51:00.034 +03:00  INF  Executed DbCommand (106ms) [Parameters=[@__email_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."UserId", u."Email", u."PasswordHash", u."Username"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2023-10-21 15:51:01.297 +03:00  INF  Executed DbCommand (8ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."SubscriptionId", s."EndDate", s."StartDate", s."SubscriptionType", s."UserId"
+FROM "Subscription" AS s
+WHERE s."SubscriptionId" = @__p_0
+LIMIT 1
+2023-10-21 15:53:48.922 +03:00  INF  User profile is available. Using 'C:\Users\LENOVO\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-10-21 15:53:49.200 +03:00  INF  Now listening on: https://localhost:7005
+2023-10-21 15:53:49.200 +03:00  INF  Now listening on: http://localhost:5204
+2023-10-21 15:53:49.202 +03:00  INF  Application started. Press Ctrl+C to shut down.
+2023-10-21 15:53:49.203 +03:00  INF  Hosting environment: Development
+2023-10-21 15:53:49.203 +03:00  INF  Content root path: C:\Users\LENOVO\Desktop\Monty-Mobile\Subscription\Subscriptionapi\
+2023-10-21 15:53:50.576 +03:00  INF  Request starting HTTP/2 GET https://localhost:7005/swagger/index.html - -
+2023-10-21 15:53:50.875 +03:00  INF  Request finished HTTP/2 GET https://localhost:7005/swagger/index.html - - - 200 - text/html;charset=utf-8 300.9681ms
+2023-10-21 15:53:51.214 +03:00  INF  Request starting HTTP/2 GET https://localhost:7005/_vs/browserLink - -
+2023-10-21 15:53:51.214 +03:00  INF  Request starting HTTP/2 GET https://localhost:7005/_framework/aspnetcore-browser-refresh.js - -
+2023-10-21 15:53:51.224 +03:00  INF  Request finished HTTP/2 GET https://localhost:7005/_framework/aspnetcore-browser-refresh.js - - - 200 12000 application/javascript;+charset=utf-8 10.1802ms
+2023-10-21 15:53:51.237 +03:00  INF  Request finished HTTP/2 GET https://localhost:7005/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 23.1315ms
+2023-10-21 15:53:51.307 +03:00  INF  Request starting HTTP/2 GET https://localhost:7005/swagger/v1/swagger.json - -
+2023-10-21 15:53:51.421 +03:00  INF  Request finished HTTP/2 GET https://localhost:7005/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 113.9488ms
+2023-10-21 15:54:13.743 +03:00  INF  Request starting HTTP/1.1 PUT https://localhost:7005/api/Subscriptions/UpdateSubscription application/json 143
+2023-10-21 15:54:14.083 +03:00  INF  Executing endpoint 'Subscriptionapi.Controllers.Subscriptions.UpdateSubscription (Subscriptionapi)'
+2023-10-21 15:54:14.104 +03:00  INF  Route matched with {action = "UpdateSubscription", controller = "Subscriptions"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UpdateSubscription(Subscriptionapi.Models.Subscription) on controller Subscriptionapi.Controllers.Subscriptions (Subscriptionapi).
+2023-10-21 15:54:26.544 +03:00  INF  Entity Framework Core 6.0.23 initialized 'ApplicationDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.22+7b04a420e2d10ef5ef0db6abe49a6ad53a2f8653' with options: None
+2023-10-21 15:54:27.517 +03:00  INF  Executed DbCommand (119ms) [Parameters=[@__email_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."UserId", u."Email", u."PasswordHash", u."Username"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2023-10-21 15:54:28.843 +03:00  INF  Executed DbCommand (8ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."SubscriptionId", s."EndDate", s."StartDate", s."SubscriptionType", s."UserId"
+FROM "Subscription" AS s
+WHERE s."SubscriptionId" = @__p_0
+LIMIT 1
+2023-10-21 15:54:31.800 +03:00  INF  Executed DbCommand (8ms) [Parameters=[@p3='?' (DbType = Int32), @p0='?' (DbType = DateTime), @p1='?' (DbType = DateTime), @p2='?'], CommandType='"Text"', CommandTimeout='30']
+UPDATE "Subscription" SET "EndDate" = @p0, "StartDate" = @p1, "SubscriptionType" = @p2
+WHERE "SubscriptionId" = @p3;
+2023-10-21 15:54:32.581 +03:00  INF  Email: ali@gmail.com Updates  Subscription  with subid 2
+2023-10-21 15:54:34.258 +03:00  INF  Executing OkObjectResult, writing value of type 'System.String'.
+2023-10-21 15:54:34.265 +03:00  INF  Executed action Subscriptionapi.Controllers.Subscriptions.UpdateSubscription (Subscriptionapi) in 20155.7805ms
+2023-10-21 15:54:34.266 +03:00  INF  Executed endpoint 'Subscriptionapi.Controllers.Subscriptions.UpdateSubscription (Subscriptionapi)'
+2023-10-21 15:54:34.278 +03:00  INF  Request finished HTTP/1.1 PUT https://localhost:7005/api/Subscriptions/UpdateSubscription application/json 143 - 200 - text/plain;+charset=utf-8 20534.6594ms
+2023-10-21 15:54:39.662 +03:00  INF  Request starting HTTP/1.1 GET https://localhost:7005/api/Subscriptions/UserSubscriptions - -
+2023-10-21 15:54:39.665 +03:00  INF  Executing endpoint 'Subscriptionapi.Controllers.Subscriptions.UserSubscriptions (Subscriptionapi)'
+2023-10-21 15:54:39.666 +03:00  INF  Route matched with {action = "UserSubscriptions", controller = "Subscriptions"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult UserSubscriptions() on controller Subscriptionapi.Controllers.Subscriptions (Subscriptionapi).
+2023-10-21 15:54:39.679 +03:00  INF  Entity Framework Core 6.0.23 initialized 'ApplicationDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.22+7b04a420e2d10ef5ef0db6abe49a6ad53a2f8653' with options: None
+2023-10-21 15:54:39.690 +03:00  INF  Executed DbCommand (1ms) [Parameters=[@__email_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."UserId", u."Email", u."PasswordHash", u."Username"
+FROM "Users" AS u
+WHERE u."Email" = @__email_0
+LIMIT 1
+2023-10-21 15:54:39.693 +03:00  INF  Executed DbCommand (0ms) [Parameters=[@__UserId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT s."SubscriptionId", s."EndDate", s."StartDate", s."SubscriptionType", s."UserId"
+FROM "Subscription" AS s
+WHERE s."UserId" = @__UserId_0
+2023-10-21 15:54:39.694 +03:00  INF  Email: ali@gmail.com Fetched All Subscriptions
+2023-10-21 15:54:39.694 +03:00  INF  Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Subscriptionapi.Models.Subscription, Subscriptionapi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-10-21 15:54:39.698 +03:00  INF  Executed action Subscriptionapi.Controllers.Subscriptions.UserSubscriptions (Subscriptionapi) in 31.6886ms
+2023-10-21 15:54:39.698 +03:00  INF  Executed endpoint 'Subscriptionapi.Controllers.Subscriptions.UserSubscriptions (Subscriptionapi)'
+2023-10-21 15:54:39.698 +03:00  INF  Request finished HTTP/1.1 GET https://localhost:7005/api/Subscriptions/UserSubscriptions - - - 200 - application/json;+charset=utf-8 35.8006ms
