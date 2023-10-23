@@ -15,6 +15,7 @@ namespace Subscriptionapi.Controllers
     [Route("api/[controller]")]
      [Authorize]
     [ApiController]
+    [ApiVersion("1.0")]
     public class Subscriptions : ControllerBase
     {
 
@@ -36,7 +37,7 @@ namespace Subscriptionapi.Controllers
 
 
         [HttpGet("UserSubscriptions")]
-        [ApiVersion("1.0")]
+        [MapToApiVersion("1.0")]
         public async Task<IActionResult> UserSubscriptions()
         {
          
@@ -97,8 +98,18 @@ namespace Subscriptionapi.Controllers
         }
 
 
+
+
+
+
+
+
+
+
+
+
         [HttpGet("SubscriptionRemainingDays")]
-        [ApiVersion("1.0")]
+        [MapToApiVersion("1.0")]
         public async  Task<IActionResult> SubscriptionRemainingDays(int Subscriptionid)
         {
 
@@ -128,7 +139,7 @@ namespace Subscriptionapi.Controllers
 
 
         [HttpPost("AddSubscription")]
-        [ApiVersion("1.0")]
+        [MapToApiVersion("1.0")]
         public async Task<IActionResult> AddSubscription(Subscription subscription)
         {
             if (subscription.StartDate < DateTime.UtcNow)
@@ -198,7 +209,7 @@ namespace Subscriptionapi.Controllers
 
 
         [HttpPut("UpdateSubscription")]
-        [ApiVersion("1.0")]
+        [MapToApiVersion("1.0")]
         public async Task<IActionResult> UpdateSubscription(Subscription subscription)
         {
             if (subscription.StartDate < DateTime.UtcNow)
@@ -283,7 +294,7 @@ namespace Subscriptionapi.Controllers
 
 
         [HttpDelete("DeleteSubscription")]
-        [ApiVersion("1.0")]
+        [MapToApiVersion("1.0")]
 
         public async Task<IActionResult> DeleteSubscription(int subscriptionid)
         {

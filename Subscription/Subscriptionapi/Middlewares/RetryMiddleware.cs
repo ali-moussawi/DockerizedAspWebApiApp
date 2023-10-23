@@ -11,7 +11,7 @@
 
         public async Task Invoke(HttpContext context)
         {
-            int maxRetries = 3; 
+            int maxRetries = 5; 
             int retryCount = 0;
 
             while (retryCount < maxRetries)
