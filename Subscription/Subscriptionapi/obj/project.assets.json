@@ -3262,11 +3262,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\LENOVO\\Desktop\\Monty-Mobile\\Subscription\\Subscriptionapi\\Subscriptionapi.csproj",
+      "projectUniqueName": "C:\\Users\\LENOVO\\Desktop\\Monty-Mobile\\DockerizedAspWebApiApp\\Subscription\\Subscriptionapi\\Subscriptionapi.csproj",
       "projectName": "Subscriptionapi",
-      "projectPath": "C:\\Users\\LENOVO\\Desktop\\Monty-Mobile\\Subscription\\Subscriptionapi\\Subscriptionapi.csproj",
+      "projectPath": "C:\\Users\\LENOVO\\Desktop\\Monty-Mobile\\DockerizedAspWebApiApp\\Subscription\\Subscriptionapi\\Subscriptionapi.csproj",
       "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\LENOVO\\Desktop\\Monty-Mobile\\Subscription\\Subscriptionapi\\obj\\",
+      "outputPath": "C:\\Users\\LENOVO\\Desktop\\Monty-Mobile\\DockerizedAspWebApiApp\\Subscription\\Subscriptionapi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\LENOVO\\AppData\\Roaming\\NuGet\\NuGet.Config",

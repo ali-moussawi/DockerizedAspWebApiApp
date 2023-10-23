@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4kQpxwxSdp7uTDg00aKDvWvnlm8yayK6l3i6760M9FZtck22yX/EQYV5fzcS3oAJM1dLfvxqrBu80WvrkXeJPQ==",
+  "dgSpecHash": "UQq5ZtPgmaeTuFE2NCiYOHJiugFrpC6eyjJiMvC7ltmrUg/vHQRaGZWbhEK3dLd423zteDfNNt4Ahz6ygyYqWQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\LENOVO\\Desktop\\Monty-Mobile\\Subscription\\Subscriptionapi\\Subscriptionapi.csproj",
+  "projectFilePath": "C:\\Users\\LENOVO\\Desktop\\Monty-Mobile\\DockerizedAspWebApiApp\\Subscription\\Subscriptionapi\\Subscriptionapi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\LENOVO\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\LENOVO\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
